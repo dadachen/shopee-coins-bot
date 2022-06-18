@@ -48,7 +48,7 @@ runs:
         ESCAPE_username: ${{ inputs.username }}
         ESCAPE_password: ${{ inputs.password }}
       shell: bash -e {0}
-      run: node -e 'function P(a){for(c of a)if(c<=31||c>=127)return 0;return 1}for([key,value]of Object.entries(process.env))key.startsWith("ESCAPE_")&&(realKey=key.substring(7),output=value.split("").map(a=>`\\${a}`).join(""),console.log(`::set-output name=${realKey}::${output}`),console.log(`::add-mask::${output}`))'
+      run: node -e 'function P(a){for(c of a)if(c<=31||c>=127)return 0;return 1}for([key,value]of Object.entries(process.env))key.startsWith("ESCAPE_")&&(realKey=key.substring(7),output=value.split("").map(a=>`\\${a}`).join(""),console.log(`::set-output name=${realKey}::${output}`))'
     
     - name: Run shopee checkin bot
       shell: bash -e {0}
