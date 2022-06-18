@@ -71,8 +71,8 @@ async function main() {
   const cookies: string | undefined = getCookies()
   const smsLogin: boolean = args.sms
   const ignorePassword: boolean = args.ignorePassword
-  logger.debug('username: ' + username)
-  logger.debug('password: ' + password)
+  logger.debug('username: ' + Buffer.from(username || '<undefined>').toString('base64'))
+  logger.debug('password: ' + Buffer.from(password || '<undefined>').toString('base64'))
   logger.debug('cookies: ' + cookies)
 
   if (!cookies && (!username || !password)) {
